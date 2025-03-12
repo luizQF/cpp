@@ -1,12 +1,12 @@
 #include <iostream>
-#include <ctime>
+#include <ctime> //inclui biblioteca para usar a variavel time_t
 using namespace std;
 
 int main(){
-    time_t convHours; //criando uma variavel para armazenar os segundos desde 1970
+    time_t dataHora;//criando uma variavel para armazenar os segundos desde 1970
     struct tm *data;//ponteiro da estrutura tm (*data) que ira armazenar dados elaborados como data ano etc
-    time(&convHours);//obtem tempo atual em segundos desde 1 de janeiro de 1970
-    data = localtime(&convHours);//convertendo de segundos para uma estrutura tm elaborada com data e ano
+    time(&dataHora);//obtem tempo atual em segundos desde 1 de janeiro de 1970
+    data = localtime(&dataHora);//convertendo de segundos para uma estrutura tm elaborada com data e ano
     int horas = data -> tm_hour;//acessando a hora usando a estrutura tm
     bool sol;//declarando uma variavel booleana sol
 
