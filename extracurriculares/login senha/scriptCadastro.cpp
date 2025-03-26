@@ -15,7 +15,7 @@ int main(){
         cin >> Userdados[1];
     } 
     ofstream dadosSalvar("dados.txt");
-    dadosSalvar << Userdados[0] << Userdados[1];
+    dadosSalvar << Userdados[0] << "\n" << Userdados[1];
     dadosSalvar.close();
     return 0;
 }
