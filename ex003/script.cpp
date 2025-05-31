@@ -6,24 +6,30 @@
 
 /*exiba um número no comando, peça um número e adicione ele na variavel depois exiba ela com o número adicionado*/
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
-
+int gerarNum();
 int main(){
-    int maxTentativas = 3;//máximo de tentativas
-    int valor;//valor atual
-    int adicionar;//valor adicionado
-    cout << "escolha um numero de 1 a 100\n";
-    cin >> valor;
-    for(int tentativas = 0; tentativas < maxTentativas; tentativas++){//laço usando o incremento
-        cout << "insira um valor para somar com seu valor atual" << "\n\n valor atual:" << valor << "\n\n Adicionar:  " << endl;/*pede um valor para adicionar*/
-        cin >> adicionar;//valor atribuido em adicionar
-        if((adicionar < 1) || (adicionar > 100)){
-            cout << "insira um valor entre 1 e 100" << "\n\n" << "tentativas restantes: " << (maxTentativas - tentativas) - 1 << endl;
-        }else{
-            cout << "sucesso numero: " << adicionar << " adicionado\n\n" << "Valor atual: " << (adicionar + valor);
-            break;
-        }
-    }
+    srand(time(0));
+    int num1, num2 = gerarNum();
+    cout << "Seu numero e: " << num2 << endl;
+    cout << "escolha outro numero\n";
+    cin >> num1;
+    cout << "A SOMA DOS NUMEROS E " << num1 + num2 << endl;
     
 
+    return 0;
+}
+int gerarNum(){
+    const int tam = 100;
+    int num[tam];
+
+        for(int i = 0; i < tam; i++){
+            num[i] = i;
+        }
+    
+    int pos = rand() % (tam-1);
+    int numC = num[pos];
+    return numC;
 }
